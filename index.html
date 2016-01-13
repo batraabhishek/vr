@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<script src="https://aframe.io/releases/latest/aframe.min.js"></script>
+		<script>
+			var count = 0;
+			var directionUp = true;
+
+			setInterval(function() {
+			  document.getElementById('ball').setAttribute("position", "0 " + count + " -1");
+			  document.getElementById('cube').setAttribute("position", "-1 0.5 " + count);
+			  console.log(count);
+			  if (count < 0) {
+			    directionUp = true;
+			  } else if (count > 4) {
+			    directionUp = false;
+			  }
+			  if (directionUp) {
+			    count = count + 0.1;
+			  } else {
+			    count = count - 0.1;
+			  }
+
+			}, 50);
+</script>
+	</head>
+
+	<body>
+		<a-scene>
+		  <a-sphere id="ball" position="0 1.25 -1" radius="0.33" color="#EF2D5E"></a-sphere>
+		  <a-cube id="cube" position="-1 0.5 1" rotation="0 45 0" width="1" height="1" depth="1"  color="#4CC3D9"></a-cube>
+		  <a-cylinder position="1 0.75 1" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+		  <a-plane rotation="-90 90 0" width="4" height="4" color="#7BC8A4"></a-plane>
+		  <a-sky color="#ECECEC"></a-sky>
+		</a-scene>
+	</body>
+<html>
